@@ -41,10 +41,13 @@ public class Dog implements Comparable<Dog>{
 		app.text(age, px + 500, py);
 	}
 	
+	public String toString() {
+		String msg = id+", "+ name+", "+age+", "+raza+"\n";
+		return msg;
+	}
 	
 	@Override
 	public int compareTo(Dog otherDog) {
-		
 		return id - otherDog.getId();
 	}
 

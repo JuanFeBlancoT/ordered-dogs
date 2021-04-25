@@ -1,12 +1,12 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 
 import processing.core.PApplet;
 
@@ -18,16 +18,18 @@ public class Logic {
 	private String[] textS2;
 	private String[] lines;
 	private ArrayList<Dog> dogs;
-	
+	private int sortType;
 	
 	public Logic(PApplet app) {
 		
 		words = new ArrayList<>();
 		dogs = new ArrayList<>();
+		sortType = 1;
 		readFiles(app);
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	public void readFiles(PApplet app) {
 		//add to the arrays each line of the .txt
 		textS = app.loadStrings("data/imports/import1.txt");
@@ -67,10 +69,6 @@ public class Logic {
 		}
 	}
 
-	public ArrayList<Dog> getDogs() {
-		return dogs;
-	}
-
 	public void sortById() {
 		Collections.sort(dogs);
 	}
@@ -100,5 +98,50 @@ public class Logic {
 		};
 		Collections.sort(dogs,breedComparator);
 	}
+	
+	public ArrayList<Dog> getDogs() {
+		return dogs;
+	}
+
+	public void exportId() throws FileNotFoundException {
+		PrintWriter pwId = new PrintWriter("data/exports/dogsById");
+		for (int i = 0; i < dogs.size(); i++) {
+			pwId.print(dogs.get(i).toString());
+		}
+		pwId.close();
+	}
+	
+	public void exportAge() throws FileNotFoundException {
+		PrintWriter pwA = new PrintWriter("data/exports/dogsByAge");
+		for (int i = 0; i < dogs.size(); i++) {
+			pwA.print(dogs.get(i).toString());
+		}
+		pwA.close();
+	}
+		
+	public void exportName() throws FileNotFoundException {
+		PrintWriter pwN = new PrintWriter("data/exports/dogsByName");
+		for (int i = 0; i < dogs.size(); i++) {
+			pwN.print(dogs.get(i).toString());
+		}
+		pwN.close();
+	}
+		
+	public void exportBreed() throws FileNotFoundException {
+		PrintWriter pwB = new PrintWriter("data/exports/dogsByBreed");
+		for (int i = 0; i < dogs.size(); i++) {
+			pwB.print(dogs.get(i).toString());
+		}
+		pwB.close();
+	}
+
+	public int getSortType() {
+		return sortType;
+	}
+
+	public void setSortType(int sortType) {
+		this.sortType = sortType;
+	}
+	
 	
 }
