@@ -25,4 +25,20 @@ public class MainController {
 			logic.getDogs().get(i).drawDog(app, PX, (i*50)+200);
 		}
 	}
+	
+	public void sortByID() {
+		logic.sortById();
+	}
+
+	public void sortByName() {
+		logic.sortByName();
+	}
+	
+	public void sortByAge() {
+		logic.sortByAge();
+	}
+	
+	public void sortByBreed() {
+		logic.sortByBreed();
+	}
 }

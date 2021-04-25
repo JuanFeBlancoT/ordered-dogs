@@ -2,6 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 
 import processing.core.PApplet;
 
@@ -66,5 +71,34 @@ public class Logic {
 		return dogs;
 	}
 
+	public void sortById() {
+		Collections.sort(dogs);
+	}
+	
+	public void sortByName() {
+		DogNameComparator dogNC = new DogNameComparator();
+		Collections.sort(dogs,dogNC);
+	}
+	
+	public void sortByAge() {
+		Comparator<Dog> ageComparator = new Comparator<Dog>() {
+			@Override
+			public int compare(Dog dogo1, Dog dogo2) {
+				return Integer.compare(dogo1.getAge(), dogo2.getAge()) ;
+			}
+			
+		};
+		Collections.sort(dogs,ageComparator);
+	}
+	
+	public void sortByBreed() {
+		Comparator<Dog> breedComparator = new Comparator<Dog>() {
+			@Override
+			public int compare(Dog dogo1, Dog dogo2) {
+				return dogo1.getName().compareTo(dogo2.getName());
+			}
+		};
+		Collections.sort(dogs,breedComparator);
+	}
 	
 }

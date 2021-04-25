@@ -18,6 +18,7 @@ public class Main extends PApplet{
 	public void setup() {
 		
 		mainController = new MainController(this);
+		mainController.sortByBreed();
 	}
 
 	public void draw() {

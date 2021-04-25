@@ -5,7 +5,7 @@ import java.time.Period;
 
 import processing.core.PApplet;
 
-public class Dog {
+public class Dog implements Comparable<Dog>{
 
 	private int id;
 	private String name;
@@ -19,8 +19,8 @@ public class Dog {
 		id = idi;
 		name = n;
 		date = d;
-		raza = r;
-		
+		raza = r.replace("-", " ");
+
 		//
 		dateInfo = app.split(date, "-");
 		day = Integer.parseInt(dateInfo[0]);
@@ -39,4 +39,46 @@ public class Dog {
 		app.text(raza, px + 250, py);
 		app.text(age, px + 500, py);
 	}
+	
+	
+	@Override
+	public int compareTo(Dog otherDog) {
+		
+		return id - otherDog.getId();
+	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRaza() {
+		return raza;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
 }
