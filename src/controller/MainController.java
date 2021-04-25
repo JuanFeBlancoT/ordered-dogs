@@ -2,8 +2,6 @@ package controller;
 
 import java.io.FileNotFoundException;
 
-import javax.swing.Box.Filler;
-
 import model.Logic;
 import processing.core.PApplet;
 

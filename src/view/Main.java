@@ -7,7 +7,6 @@ import processing.core.PApplet;
 
 public class Main extends PApplet{
 
-	private int screen;
 	private MainController mainController;
 	
 	public static void main(String[] args) {
@@ -19,7 +18,6 @@ public class Main extends PApplet{
 	}
 	
 	public void setup() {
-		screen = 1;
 		mainController = new MainController(this);
 	}
 
