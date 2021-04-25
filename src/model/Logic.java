@@ -95,7 +95,7 @@ public class Logic {
 		Comparator<Dog> breedComparator = new Comparator<Dog>() {
 			@Override
 			public int compare(Dog dogo1, Dog dogo2) {
-				return dogo1.getName().compareTo(dogo2.getName());
+				return dogo1.getRaza().compareTo(dogo2.getRaza());
 			}
 		};
 		Collections.sort(dogs,breedComparator);

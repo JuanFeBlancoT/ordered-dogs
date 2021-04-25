@@ -15,6 +15,7 @@ public class Dog implements Comparable<Dog>{
 	private String raza;
 	private int age;
 	
+	@SuppressWarnings("static-access")
 	public Dog(int idi, String n, String d, String r, PApplet app) {
 		id = idi;
 		name = n;
